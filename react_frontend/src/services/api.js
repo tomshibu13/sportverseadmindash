@@ -205,8 +205,11 @@ export async function fetchUsers() {
     }
     return [];
   } catch (err) {
-    console.warn('Could not fetch users from backend:', err.message);
-    return [];
+    console.warn('Could not fetch users from backend, using mock data:', err.message);
+    return [
+      normalizeUser({ id: 1, fullName: 'John Doe', email: 'john@example.com', role: 'User', isApproved: true, phone: '1234567890', location: 'New York' }),
+      normalizeUser({ id: 2, fullName: 'Jane Smith', email: 'jane@example.com', role: 'GroundOwner', isApproved: false, phone: '0987654321', location: 'London' })
+    ];
   }
 }
 
@@ -244,8 +247,11 @@ export async function fetchGrounds() {
     }
     return [];
   } catch (err) {
-    console.warn('Could not fetch grounds from backend:', err.message);
-    return [];
+    console.warn('Could not fetch grounds from backend, using mock data:', err.message);
+    return [
+      normalizeGround({ id: 1, title: 'Premium Turf', location: 'Downtown', pricePerHour: 1000, sports: ['Football'], status: 'Active', rating: 4.8 }),
+      normalizeGround({ id: 2, title: 'Badminton Hub', location: 'Uptown', pricePerHour: 500, sports: ['Badminton'], status: 'Active', rating: 4.5 })
+    ];
   }
 }
 
@@ -342,8 +348,11 @@ export async function fetchBookings(userId = null) {
     }
     return [];
   } catch (err) {
-    console.warn('Could not fetch bookings from backend:', err.message);
-    return [];
+    console.warn('Could not fetch bookings from backend, using mock data:', err.message);
+    return [
+      normalizeBooking({ id: 1, booking_id: 'BK-001', user_name: 'John Doe', ground_name: 'Premium Turf', date: '2023-10-25', slot_time: '18:00', total_price: 1000, booking_status: 'Confirmed' }),
+      normalizeBooking({ id: 2, booking_id: 'BK-002', user_name: 'Jane Smith', ground_name: 'Badminton Hub', date: '2023-10-26', slot_time: '19:00', total_price: 500, booking_status: 'Pending' })
+    ];
   }
 }
 
@@ -395,8 +404,11 @@ export async function fetchProducts() {
     }
     return [];
   } catch (err) {
-    console.warn('Could not fetch products from backend:', err.message);
-    return [];
+    console.warn('Could not fetch products from backend, using mock data:', err.message);
+    return [
+      normalizeProduct({ id: 1, title: 'Football', category: 'Gear', price: 50, stock: 10, rating: 4.5 }),
+      normalizeProduct({ id: 2, title: 'Badminton Racket', category: 'Gear', price: 120, stock: 5, rating: 4.8 })
+    ];
   }
 }
 
